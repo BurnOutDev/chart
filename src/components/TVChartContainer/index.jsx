@@ -1,6 +1,7 @@
 import * as React from 'react';
 import './index.css';
 import Datafeed from './api/';
+import { connection } from '../../connection';
 
 
 const INTERVAL = {
@@ -44,6 +45,11 @@ export class TVChartContainer extends React.PureComponent {
     studiesOverrides: {},
     theme: 'Dark'
   };
+
+  constructor(props) {
+    super(props)
+    connection.start()
+  }
 
   componentDidMount() {
     const widgetOptions = {
